@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OYEX</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            background-color: #f4f4f4;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: green;
+            font-weight: bold;
+            color: white;
+            position: fixed;
+            width: 1850px;
+            top: 0;
+            left: 0;
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        .logo a,.userlog a, .aboutus a, .contactus a, .ourproduct a{
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .userlog a:hover, .aboutus a:hover,.contactus a:hover, .ourproduct a:hover {
+            background-color: darkgreen;
+        }
+
+        .main-content {
+            display: flex;
+            width: 80%;
+            margin-top: 100px; /* Space for the fixed header */
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .left-sec {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .piclogo {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .history {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .history h3 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .history p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .history h4 {
+            font-weight: bold;
+        }
+
+        .right-sec {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-sec p {
+
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            animation: grow 1s infinite;
+            
+        }
+
+        .trending-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .trending-item {
+            width: 100%;
+            text-align: center;
+        }
+
+        .trending-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .trending-item p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .trending-item:hover {
+            transform: scale(1.05);
+        }
+
+        .playerhistory{
+            width: 100px;
+            height: 100px;
+            transition: transform 0.3s ease; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+        .playerhistory:hover {
+            transform: scale(1.1); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+    }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="admin.html">OYEX</a>
+    </div>
+    <div class="userlog">
+        <a href="login.html">Log In</a>
+    </div>
+    <div class="aboutus">
+        <a href="aboutus.html">About Us</a>
+    </div>
+    <div class="contactus">
+        <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="ourproduct">
+        <a href="product.html">Our Product</a>
+    </div>
+</header>
+
+<div class="main-content">
+    <div class="left-sec">
+        <img src="Y/1.png" class="piclogo">
+        <div class="history">
+            <h3>At OYEX, we believe in the power of sports to bring people together and transform lives. Our journey began with a simple idea: to make the joy of badminton more accessible to everyone.</h3>
+            <p>
+                Founded by a passionate sports enthusiast, OYEX was born out of frustration with the lack of convenient platforms to buy quality badminton gear and book courts. Our founder, a lifelong lover of the game, realized the challenges players faced in finding the right equipment and reserving courts hassle-free. Determined to change that, OYEX was created to bridge the gap between enthusiasts and their passion.
+                What started as a small initiative to support local players has grown into a comprehensive platform where athletes of all levels can find premium rackets, book courts with ease, and discover resources to improve their game.
+                At OYEX, we’re more than a business; we’re a community. We are committed to empowering players, fostering connections, and making badminton a lifestyle for everyone.
+            </p>
+            <h4>Welcome to OYEX—where your game begins.</h4>
+        </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZfJcbxe7cMA?autoplay=1&mute=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="padding: 20px;"></iframe>
+    </div>
+    <div class="playerhistory">
+        <a href="player.html" target="_blank"><img src = "Y\image.png" width="100" height="100""></a>
+    </div>
+
+    <div class="right-sec">
+        <p>TRENDING ITEMS ON SALE!!</p>
+        <div class="trending-container">
+            <div class="trending-item">
+                <img src="Y\arcsaber.png" alt="Trending Item 1">
+                <p>Arcsaber 7 Play Badminton Racket</p>
+            </div>
+            <div class="trending-item">
+                <img src="Y\astrox.png" alt="Trending Item 2">
+                <p>Astrox 88 D Play Badminton racket</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

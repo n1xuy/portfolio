@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <title>OYEX Product Page</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header h1 {
+        margin: 0;
+      }
+      header button {
+        background-color: white;
+        color: #4caf50;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      header button:hover {
+        background-color: #388e3c;
+        color: white;
+      }
+      main {
+        padding: 20px;
+      }
+      .search-bar {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .search-bar input,
+      .search-bar select,
+      .search-bar button {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .search-bar button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .search-bar button:hover {
+        background-color: #388e3c;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .product-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .product-card img {
+        max-width: 100%;
+        height: 150px;
+        object-fit: contain;
+        border-radius: 5px;
+      }
+      .product-card p {
+        margin: 10px 0;
+        color: #666;
+        font-size: 16px;
+      }
+      .product-card button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .product-card button:hover {
+        background-color: #388e3c;
+      }
+      .product-card a {
+        text-decoration: none;
+        font-weight: bold;
+        color: green;
+      }
+      .product-card a:hover {
+        font-style: italic;
+      }
+    </style>
+    <script>
+      function addToCart(name, price, image) {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push({ name, price, image });
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        alert(`${name} has been added to your cart.`);
+      }
+
+      function viewCart() {
+        window.location.href = "cart.html";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>OYEX Product Page</h1>
+      <button onclick="viewCart()">View Cart</button>
+    </header>
+
+    <main>
+      <div class="product-grid" id="productGrid">
+        <div class="product-card">
+          <img src="Y/arcsaber.png" alt="Yonex Arcsaber" />
+          <a href="details1.html">Yonex Arcsaber</a>
+          <p>RM 129</p>
+          <button onclick="addToCart('Yonex Arcsaber', 129, 'Y/arcsaber.png')">
+            Add to Cart
+          </button>
+        </div>
+        <div class="product-card">
+          <img src="Y/astrox.png" alt="Yonex Astrox" />
+          <a href="details2.html">Yonex Astrox</a>
+          <p>RM 200</p>
+          <button onclick="addToCart('Yonex Astrox', 200, 'Y/astrox.png')">
+            Add to Cart
+          </button>
+        </div>
+        <div class="product-card">
+          <img src="Y/oyexshuttle.png" alt="OYEX Shuttlecock" />
+          <a href="details3.html">OYEX Shuttlecock</a>
+          <p>RM 35</p>
+          <button
+            onclick="addToCart('OYEX Shuttlecock', 35, 'Y/oyexshuttle.png')"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

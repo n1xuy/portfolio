@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Report</title>
+    <link rel="stylesheet" href="adminsales.css"> 
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="report-title">Sales Report</h1>
+
+        <div class="filter-section">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate">
+            <button onclick="filterReport()">Filter</button>
+        </div>
+
+        <div class="report-section">
+            <h2>Sales Summary</h2>
+            <table class="sales-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Sale Date</th>
+                    </tr>
+                </thead>
+                <tbody id="reportTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const salesData = [
+            { orderId: 101, customerName: 'Guan Ming', product: 'Yonex Arcsaber', quantity: 1, totalPrice: 129, saleDate: '2025-01-20' },
+            { orderId: 102, customerName: 'Yong Xiang', product: 'Oyex Normal Grip', quantity: 2, totalPrice: 70, saleDate: '2025-01-19' },
+            { orderId: 103, customerName: 'Wei Xuan', product: 'Astrox Lite', quantity: 1, totalPrice: 159, saleDate: '2025-01-18' }
+        ];
+
+        function renderReportTable() {
+            const tableBody = document.getElementById('reportTableBody');
+            tableBody.innerHTML = ''; 
+
+            salesData.forEach(sale => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${sale.orderId}</td>
+                    <td>${sale.customerName}</td>
+                    <td>${sale.product}</td>
+                    <td>${sale.quantity}</td>
+                    <td>RM${sale.totalPrice.toFixed(2)}</td>
+                    <td>${sale.saleDate}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function filterReport() {
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+
+            if (startDate && endDate) {
+                const filteredData = salesData.filter(sale => {
+                    return sale.saleDate >= startDate && sale.saleDate <= endDate;
+                });
+                renderFilteredReport(filteredData);
+            } else {
+                renderReportTable();
+            }
+        }
+
+        function renderFilteredReport(filteredData) {
+            const tableBody = document.getElementById('reportTableBody');
+            tableBody.innerHTML = ''; 
+
+            filteredData.forEach(sale => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${sale.orderId}</td>
+                    <td>${sale.customerName}</td>
+                    <td>${sale.product}</td>
+                    <td>${sale.quantity}</td>
+                    <td>RM${sale.totalPrice.toFixed(2)}</td>
+                    <td>${sale.saleDate}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        renderReportTable();
+    </script>
+
+</body>
+</html>

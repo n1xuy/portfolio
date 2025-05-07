@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Malaysian Badminton Players</title>
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    
+    .player-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .player-container h1 {
+      color: #007b5e; /* Green tone */
+      margin-bottom: 20px;
+    }
+
+    .player-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .player-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .player-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .player-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .player-card .content {
+      padding: 15px;
+    }
+
+    .player-card h2 {
+      color: #007b5e;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .player-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .player-card .more-info-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: #007b5e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .player-card .more-info-btn:hover {
+      background-color: #005d46;
+    }
+  </style>
+</head>
+<body>
+  <div class="player-container">
+    <h1>Malaysian Badminton Players</h1>
+    <div class="player-grid">
+      <!-- Player 1: Lee Chong Wei -->
+      <div class="player-card">
+        <img src="Y\player4.png" alt="Lee Chong Wei">
+        <div class="content">
+          <h2>Datuk Lee Chong Wei</h2>
+          <p>Legendary singles player with 3 Olympic silver medals. Held the World No. 1 rank for 349 weeks.</p>
+          <a href="https://en.wikipedia.org/wiki/Lee_Chong_Wei" target="_blank" class="more-info-btn">Learn More</a>
+        </div>
+      </div>
+      <!-- Player 2: Pearly Tan and Thinaah Muralitharan -->
+      <div class="player-card">
+        <img src="Y\player1.png" alt="Pearly Tan and Thinaah">
+        <div class="content">
+          <h2>Pearly Tan & Thinaah Muralitharan</h2>
+          <p>Top Malaysian women's doubles pair, known for their exceptional teamwork and strategy.</p>
+          <a href="https://en.wikipedia.org/wiki/Pearly_Tan" target="_blank" class="more-info-btn">Learn More</a>
+        </div>
+      </div>
+      <!-- Player 3: Goh Liu Ying -->
+      <div class="player-card">
+        <img src="Y\player2.png" alt="Goh Liu Ying">
+        <div class="content">
+          <h2>Goh Liu Ying</h2>
+          <p>Mixed doubles star who won an Olympic silver medal in 2016 with Chan Peng Soon.</p>
+          <a href="https://en.wikipedia.org/wiki/Goh_Liu_Ying" target="_blank" class="more-info-btn">Learn More</a>
+        </div>
+      </div>
+      <!-- Player 4: Aaron Chia and Soh Wooi Yik -->
+      <div class="player-card">
+        <img src="Y\player3.png" alt="Aaron Chia and Soh Wooi Yik">
+        <div class="content">
+          <h2>Aaron Chia & Soh Wooi Yik</h2>
+          <p>Men’s doubles champions and Malaysia's first-ever World Champions in 2022.</p>
+          <a href="https://en.wikipedia.org/wiki/Aaron_Chia" target="_blank" class="more-info-btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

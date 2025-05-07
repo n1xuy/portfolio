@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f1f8e9;
+    }
+    header {
+      background-color: #4caf50;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav {
+      background-color: #e8f5e9;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+      gap: 10px;
+    }
+    nav button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      flex-grow: 1;
+      text-align: center;
+    }
+    nav button:hover {
+      background-color: #388e3c;
+    }
+    main {
+      padding: 20px;
+    }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .card h2 {
+      margin-top: 0;
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .stat {
+      text-align: center;
+      flex: 1;
+      margin: 0 5px;
+    }
+    .stat h3 {
+      margin: 0;
+      color: #4caf50;
+    }
+    .stat p {
+      margin: 5px 0 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #e0e0e0;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+    .task-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .task-list ul li {
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .task-list ul li span {
+      flex-grow: 1;
+      text-align: left;
+    }
+    .task-list ul li button {
+      border: none;
+      background-color: #f44336;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .task-list ul li button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+    <script>
+      function logout() {
+        window.location.href = "admin.html";
+      }
+  
+      function navigate(page) {
+        switch(page){
+          case'staff':
+            window.location.href ="adminmanagestaff.html";
+            break;
+          case 'members':
+            window.location.href ="adminmanagemember.html";
+          break;
+          case'products':
+            window.location.href="adminmanageproduct.html";
+          break;
+          case'orders':
+            window.location.href="adminmanageorder.html";
+          break;
+          case'reports':
+            window.location.href="adminsalesreport.html";
+            break;
+
+        }
+      }
+  
+      function completeTask(button) {
+        button.parentElement.remove();
+        alert('Task marked as complete!');
+      }
+    </script>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <nav>
+    <button onclick="navigate('staff')">Manage Staff</button>
+    <button onclick="navigate('members')">Manage Members</button>
+    <button onclick="navigate('products')">Manage Products</button>
+    <button onclick="navigate('orders')">Manage Orders</button>
+    <button onclick="navigate('reports')">Sales Reports</button>
+  </nav>
+
+  <main>
+    <h2>Welcome to the Dashboard</h2>
+    <div class="dashboard-grid">
+      
+      <div class="card">
+        <h2>Quick Stats</h2>
+        <div class="stats-grid">
+          <div class="stat">
+            <h3>1,245</h3>
+            <p>Users</p>
+          </div>
+          <div class="stat">
+            <h3>RM 32,400</h3>
+            <p>Total Revenue</p>
+          </div>
+          <div class="stat">
+            <h3>56</h3>
+            <p>New Orders</p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="card task-list">
+        <h2>Pending Tasks</h2>
+        <ul>
+          <li>
+            <span>Approve new user registrations</span>
+            <button onclick="completeTask(this)">Complete</button>
+          </li>
+          <li>
+            <span>Review sales report</span>
+            <button onclick="completeTask(this)">Complete</button>
+          </li>
+          <li>
+            <span>Update product pricing</span>
+            <button onclick="completeTask(this)">Complete</button>
+          </li>
+        </ul>
+      </div>
+
+     
+      <div class="card">
+        <h2>Recent Orders</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1001</td>
+              <td>Guan Ming</td>
+              <td>RM 250</td>
+              <td>Shipped</td>
+            </tr>
+            <tr>
+              <td>1002</td>
+              <td>Wei Xuan</td>
+              <td>RM 120</td>
+              <td>Pending</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+     
+      <div class="card">
+        <h2>Notifications</h2>
+        <p>No new notifications at the moment.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

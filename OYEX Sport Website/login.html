@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> OYEX Member Login Page</title>
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eafaf1; /* Light green background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    
+    .login-container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      padding: 20px;
+    }
+
+    
+    .login-container h2 {
+      text-align: center;
+      color: #2e8b57; /* Green */
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+   
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #2e8b57; /* Green */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background-color: #247a46; /* Darker green */
+    }
+
+   
+    .login-container .register-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #2e8b57;
+      text-decoration: none;
+    }
+
+    .login-container .register-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function gotoPage(){
+      window.location.href = "userdashboard.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Member Login</h2>
+    <form>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit" onclick="gotoPage()">Login</button>
+    </form>
+    <a href="register.html" class="register-link">Don't have an member account?</a>
+  </div>
+</body>
+</html>

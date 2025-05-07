@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <title>User Registration</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 400px; 
+            margin: 0 auto; 
+            padding: 20px; }
+        input { 
+            width: 100%;
+             padding: 8px;
+             margin: 10px 0; }
+        button { 
+            width: 100%; 
+            padding: 10px; 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; }
+    </style>
+    <script>
+        function gotoPage(){
+            window.location.href ="login.html";
+        }
+    </script>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        <button type="submit" onclick="gotoPage()">Register</button>
+    </form>
+</body>
+</html>

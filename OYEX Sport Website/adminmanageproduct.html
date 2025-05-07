@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; margin: 0; padding: 0;">
+
+    <div style="width: 80%; margin: 50px auto; padding: 20px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h1 style="font-size: 2rem; color: #2e8b57;">Manage Products</h1>
+        
+        <!-- Form to Add Product -->
+        <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 1.5rem; color: #2e8b57;">Add New Product</h3>
+            <form id="addProductForm">
+                <input type="text" id="productName" placeholder="Product Name" style="width: 100%; padding: 10px; margin: 5px 0; font-size: 1rem;" required><br>
+                <input type="text" id="productPrice" placeholder="Product Price" style="width: 100%; padding: 10px; margin: 5px 0; font-size: 1rem;" required><br>
+                <textarea id="productDescription" placeholder="Product Description" rows="4" style="width: 100%; padding: 10px; margin: 5px 0; font-size: 1rem;" required></textarea><br>
+                <button type="submit" style="background-color: #2e8b57; color: white; padding: 12px 24px; border: none; cursor: pointer; font-size: 1rem;">Add Product</button>
+            </form>
+        </div>
+
+        <!-- Product Table -->
+        <div>
+            <h3 style="font-size: 1.5rem; color: #2e8b57;">Product List</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 1rem;">
+                <thead style="background-color: #2e8b57; color: white;">
+                    <tr>
+                        <th style="padding: 10px; text-align: left;">Product Name</th>
+                        <th style="padding: 10px; text-align: left;">Price</th>
+                        <th style="padding: 10px; text-align: left;">Description</th>
+                        <th style="padding: 10px; text-align: left;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Product rows will appear here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Array to store products (mock data)
+        const products = [];
+
+        // Function to render the product table
+        function renderProductTable() {
+            const tableBody = document.getElementById('productTableBody');
+            tableBody.innerHTML = ''; // Clear the table
+            products.forEach((product, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="padding: 10px;">${product.name}</td>
+                    <td style="padding: 10px;">$${product.price}</td>
+                    <td style="padding: 10px;">${product.description}</td>
+                    <td style="padding: 10px;">
+                        <button onclick="editProduct(${index})" style="padding: 5px 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Edit</button>
+                        <button onclick="deleteProduct(${index})" style="padding: 5px 10px; background-color: #f44336; color: white; border: none; cursor: pointer;">Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to handle adding a product
+        document.getElementById('addProductForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const productName = document.getElementById('productName').value;
+            const productPrice = document.getElementById('productPrice').value;
+            const productDescription = document.getElementById('productDescription').value;
+
+            // Add product to array
+            products.push({
+                name: productName,
+                price: productPrice,
+                description: productDescription
+            });
+
+            // Clear form inputs
+            document.getElementById('productName').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productDescription').value = '';
+
+            // Re-render the product table
+            renderProductTable();
+        });
+
+        // Function to edit a product
+        function editProduct(index) {
+            const product = products[index];
+            const newName = prompt('Edit Product Name', product.name);
+            const newPrice = prompt('Edit Product Price', product.price);
+            const newDescription = prompt('Edit Product Description', product.description);
+
+            // Update the product details
+            products[index] = {
+                name: newName,
+                price: newPrice,
+                description: newDescription
+            };
+
+            // Re-render the product table
+            renderProductTable();
+        }
+
+        // Function to delete a product
+        function deleteProduct(index) {
+            // Confirm before deleting
+            if (confirm('Are you sure you want to delete this product?')) {
+                // Remove the product from the array
+                products.splice(index, 1);
+                // Re-render the product table
+                renderProductTable();
+            }
+        }
+    </script>
+
+</body>
+</html>

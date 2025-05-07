@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #4caf50;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav {
+      background-color: #e8f5e9;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+    }
+    nav button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    nav button:hover {
+      background-color: #388e3c;
+    }
+    main {
+      padding: 20px;
+    }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .card h2 {
+      margin: 10px 0;
+      color: #333;
+    }
+    .card p {
+      color: #666;
+    }
+    .card button {
+      margin-top: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .card button:hover {
+      background-color: #388e3c;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #e0e0e0;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 500px;
+    }
+    form input, form textarea, form select, form button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #388e3c;
+    }
+  </style>
+  <script>
+    function navigate(page) {
+      const content = document.getElementById('content');
+      if (page === 'products') {
+        content.innerHTML = `
+          <h2>List of Products/Services</h2>
+          <div class="dashboard-grid">
+            <div class="card">
+              <img src="Y\astrox.png" alt="Product">
+              <h2>Product A</h2>
+              <p>RM 100</p>
+              <button onclick="viewProduct('A')">View Details</button>
+            </div>
+            <div class="card">
+              <img src="Y\arcsaber.png" alt="Product">
+              <h2>Product B</h2>
+              <p>RM 150</p>
+              <button onclick="viewProduct('B')">View Details</button>
+            </div>
+          </div>`;
+      } else if (page === 'cart') {
+        content.innerHTML = `
+          <h2>Shopping Cart</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Product A</td>
+                <td>2</td>
+                <td>RM 200</td>
+              </tr>
+              <tr>
+                <td>Product B</td>
+                <td>1</td>
+                <td>RM150</td>
+              </tr>
+            </tbody>
+          </table>`;
+      } else if (page === 'checkout') {
+        content.innerHTML = `
+          <h2>Checkout</h2>
+          <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Address" required>
+            <input type="number" placeholder="Card Number" required>
+            <button>Pay Now</button>
+          </form>`;
+      } else if (page === 'comments') {
+        content.innerHTML = `
+          <h2>Comments and Ratings</h2>
+          <form>
+            <textarea rows="4" placeholder="Leave a comment..." required></textarea>
+            <select>
+              <option value="5">5 - Excellent</option>
+              <option value="4">4 - Very Good</option>
+              <option value="3">3 - Good</option>
+              <option value="2">2 - Fair</option>
+              <option value="1">1 - Poor</option>
+            </select>
+            <button>Submit</button>
+          </form>`;
+      }
+    }
+
+    function viewProduct(product) {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <h2>Product Details</h2>
+        <div class="card">
+          <h2>Product ${product}</h2>
+          <p>Description of Product ${product}. Price: RM100</p>
+          <button onclick="navigate('products')">Back to Products</button>
+        </div>`;
+    }
+
+    function logout() {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>User Dashboard</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <nav>
+    <button onclick="navigate('dashboard')">Dashboard</button>
+    <button onclick="navigate('products')">Products/Services</button>
+    <button onclick="navigate('cart')">Shopping Cart</button>
+    <button onclick="navigate('checkout')">Checkout</button>
+    <button onclick="navigate('comments')">Comments & Ratings</button>
+  </nav>
+
+  <main>
+    <h2>Welcome, User!</h2>
+    <div id="content">
+      <!-- Landing page content -->
+      <div class="dashboard-grid">
+        <div class="card">
+          <h2>Total Orders</h2>
+          <p>15</p>
+        </div>
+        <div class="card">
+          <h2>Total Spent</h2>
+          <p>RM 245</p>
+        </div>
+        <div class="card">
+          <h2>Favorite Product</h2>
+          <p>Yonex Arcsaber</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
