@@ -3,7 +3,7 @@
 A collection of my projects, assignments, and learning milestones during my university journey.  
 
 ## Contents  
-- **Projects**: Maze Game(C++), Cilent Side Sport Website(HTML,CSS,JS),  
+- **Projects**: Maze Game(C++), Cilent Side Sport Website(HTML,CSS,JS),  Park-MMU "Parking Zone Status Display Web" (Laravel,PHP, HTML, CSS, JS)
 - **Skills**: C, C++, MySQL, HTML, CSS, JAVASCRIPT, PHP, LARAVEL, FIGMA, Data Communication
 - **Experience**: ELV System, IP CCTV Configuration, Network Cabling, Wireless Network
 - **Awards**: Dean's List Term (2420) (2430) 
